@@ -8,7 +8,18 @@ Premiere a veces trata mal la temporización o la transparencia de los GIF anima
 
 - Premiere Pro 14 o posterior (panel en **Ventana > Extensiones (heredado)**)
 - Proyecto **guardado** en disco y una **secuencia activa**
-- [API key de Giphy](https://developers.giphy.com/)
+
+## API key de Giphy
+
+Los paquetes publicados llevan una key incluida, así que el plugin funciona al instalarlo sin configurar nada. Esa key es compartida por todos los usuarios: si se agota la cuota, el panel avisa y cada uno puede poner la suya en el engranaje de **Configuración**, que tiene prioridad sobre la incluida.
+
+Para compilar con key incluida, guarda la tuya en `.giphy-key` (ignorado por git):
+
+```bash
+echo "TU_KEY_DE_GIPHY" > .giphy-key
+```
+
+`scripts/install-dev.sh` y `scripts/package-zxp.sh` sustituyen el marcador `__GIPHY_API_KEY__` de [js/app.js](js/app.js) por ese valor al copiar o empaquetar, mediante [scripts/inject-key.sh](scripts/inject-key.sh). Sin `.giphy-key`, el panel se comporta como antes y pide la key a cada usuario.
 
 ## Desarrollo
 
@@ -64,6 +75,7 @@ Puedes apuntar a otro sitio desde el engranaje de **Configuración > URL de actu
 
 ### Registro
 
+- **1.4.0** — API key de Giphy incluida en los paquetes publicados, con aviso si se agota la cuota.
 - **1.3.1** — Los ajustes y el botón Cargar más respetan el atributo `hidden`.
 - **1.3.0** — Ajustes detrás de un botón de engranaje y botón **Add** al pasar el ratón sobre cada GIF.
 - **1.2.1** — Releases de GitHub como origen de actualizaciones por defecto.

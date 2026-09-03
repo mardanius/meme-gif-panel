@@ -5,8 +5,10 @@
 	var KEY_STORAGE = "memegif.giphyApiKey";
 	var UPDATE_URL_STORAGE = "memegif.updateUrl";
 	var GIPHY = "https://api.giphy.com/v1/gifs";
-	var PANEL_VERSION = "1.3.1";
+	var PANEL_VERSION = "1.4.0";
 	var DEFAULT_UPDATE_URL = "https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest";
+	// Los scripts de empaquetado sustituyen este marcador por la key de .giphy-key.
+	var BUNDLED_API_KEY = "__GIPHY_API_KEY__";
 
 	var csInterface = new CSInterface();
 	var fs;
@@ -105,8 +107,12 @@
 		els.status.classList.toggle("error", !!isError);
 	}
 
+	function bundledApiKey() {
+		return /^[A-Za-z0-9]{20,}$/.test(BUNDLED_API_KEY) ? BUNDLED_API_KEY : "";
+	}
+
 	function getApiKey() {
-		return (localStorage.getItem(KEY_STORAGE) || "").trim();
+		return (localStorage.getItem(KEY_STORAGE) || "").trim() || bundledApiKey();
 	}
 
 	function escapeJsxString(value) {
@@ -161,9 +167,17 @@
 					} catch (e) {
 						reject(new Error("Respuesta de " + name + " inválida."));
 					}
-				} else {
-					reject(new Error(name + " HTTP " + xhr.status));
+					return;
 				}
+				if (name === "Giphy" && (xhr.status === 429 || xhr.status === 403)) {
+					reject(new Error(
+						xhr.status === 429
+							? "Se agotó la cuota de la API key incluida. Pon la tuya en el engranaje."
+							: "Giphy rechazó la API key. Pon la tuya en el engranaje."
+					));
+					return;
+				}
+				reject(new Error(name + " HTTP " + xhr.status));
 			};
 			xhr.onerror = function () {
 				reject(new Error("No se pudo conectar con " + name + "."));
@@ -567,7 +581,7 @@
 		}
 	});
 
-	els.apiKey.value = getApiKey();
+	els.apiKey.value = (localStorage.getItem(KEY_STORAGE) || "").trim();
 	els.updateUrl.value = getUpdateUrl();
 	state.loadedVersion = localVersion();
 	els.version.textContent = "v" + state.loadedVersion;

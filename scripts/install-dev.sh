@@ -39,6 +39,8 @@ for item in CSXS css js jsx index.html; do
   cp -R "$ROOT/$item" "$DEST/$item"
 done
 
+bash "$ROOT/scripts/inject-key.sh" "$DEST"
+
 VERSION="$(sed -n 's/.*ExtensionBundleVersion="\([^"]*\)".*/\1/p' "$DEST/CSXS/manifest.xml" | head -n 1)"
 
 echo "Panel v$VERSION copiado en:"

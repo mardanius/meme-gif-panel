@@ -2,4 +2,5 @@ dist/
 certs/
 tools/
 *.p12
+.giphy-key
 .DS_Store

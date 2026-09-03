@@ -66,6 +66,7 @@ fi
 rm -rf "$STAGE"
 mkdir -p "$STAGE"
 cp -R "$ROOT/CSXS" "$ROOT/css" "$ROOT/js" "$ROOT/jsx" "$ROOT/index.html" "$STAGE/"
+bash "$ROOT/scripts/inject-key.sh" "$STAGE"
 
 if [[ ! -f "$CERT" ]]; then
   echo "Creando certificado self-signed de desarrollo…"
