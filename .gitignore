@@ -1,0 +1,5 @@
+dist/
+certs/
+tools/
+*.p12
+.DS_Store

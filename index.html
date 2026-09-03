@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Meme GIF Library</title>
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<div class="app">
+		<header class="toolbar">
+			<div class="brand">
+				<span class="brand-name">Meme GIF Library</span>
+				<div class="brand-update">
+					<span id="plugin-version" class="brand-version">v1.2.0</span>
+					<button type="button" id="check-update" class="ghost small">Actualizar</button>
+					<button type="button" id="update-action" class="update-action" hidden>Descargar</button>
+				</div>
+			</div>
+			<form class="search" id="search-form" autocomplete="off">
+				<input id="search-input" type="search" placeholder="Buscar memes…" />
+				<button type="submit">Buscar</button>
+			</form>
+			<div class="toolbar-row">
+				<button type="button" id="trending-btn" class="ghost">Tendencias</button>
+				<button type="button" id="settings-toggle" class="ghost" aria-expanded="false">API key</button>
+			</div>
+			<div id="settings" class="settings" hidden>
+				<label for="api-key">Giphy API key</label>
+				<input id="api-key" type="password" placeholder="Pega tu key de developers.giphy.com" />
+				<button type="button" id="save-key">Guardar</button>
+				<label for="update-url">URL de actualizaciones (opcional)</label>
+				<input id="update-url" type="url" placeholder="https://… version.json o GitHub releases" />
+				<button type="button" id="save-update-url">Guardar</button>
+			</div>
+			<p id="status" class="status" role="status"></p>
+		</header>
+		<main id="grid-wrap" class="grid-wrap">
+			<div id="grid" class="grid"></div>
+			<p id="empty" class="empty" hidden>No hay resultados.</p>
+			<button type="button" id="load-more" class="load-more" hidden>Cargar más</button>
+		</main>
+	</div>
+	<script src="js/CSInterface.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
