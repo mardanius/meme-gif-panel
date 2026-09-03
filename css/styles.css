@@ -4,6 +4,11 @@
 	box-sizing: border-box;
 }
 
+/* Sin esto, los display: grid/block de abajo ganan al hidden del navegador. */
+[hidden] {
+	display: none !important;
+}
+
 html,
 body {
 	margin: 0;

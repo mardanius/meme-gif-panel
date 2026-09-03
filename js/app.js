@@ -5,7 +5,7 @@
 	var KEY_STORAGE = "memegif.giphyApiKey";
 	var UPDATE_URL_STORAGE = "memegif.updateUrl";
 	var GIPHY = "https://api.giphy.com/v1/gifs";
-	var PANEL_VERSION = "1.3.0";
+	var PANEL_VERSION = "1.3.1";
 	var DEFAULT_UPDATE_URL = "https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest";
 
 	var csInterface = new CSInterface();

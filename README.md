@@ -64,6 +64,7 @@ Puedes apuntar a otro sitio desde el engranaje de **Configuración > URL de actu
 
 ### Registro
 
+- **1.3.1** — Los ajustes y el botón Cargar más respetan el atributo `hidden`.
 - **1.3.0** — Ajustes detrás de un botón de engranaje y botón **Add** al pasar el ratón sobre cada GIF.
 - **1.2.1** — Releases de GitHub como origen de actualizaciones por defecto.
 - **1.2.0** — Botón Actualizar con versión al lado, aviso de descarga y recarga del panel sin reiniciar Premiere.
