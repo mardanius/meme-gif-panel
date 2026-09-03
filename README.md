@@ -37,7 +37,8 @@ Chrome DevTools del panel (si `.debug` está presente): `http://localhost:8088`.
 
 - Al abrir el panel se cargan **tendencias**.
 - Escribe un término y pulsa **Buscar**.
-- Haz clic en un GIF: se descarga a `{carpeta_del_proyecto}/gif/{id}_{slug}.gif`, se importa al bin `gif` del proyecto y se **inserta** (no se sobreescribe) en la **pista de vídeo más alta desbloqueada**, en el playhead.
+- Pasa el ratón por encima de un GIF y pulsa **Add** (o haz clic en la tarjeta): se descarga a `{carpeta_del_proyecto}/gif/{id}_{slug}.gif`, se importa al bin `gif` del proyecto y se **inserta** (no se sobreescribe) en la **pista de vídeo más alta desbloqueada**, en el playhead.
+- La API key y la URL de actualizaciones están detrás del botón del engranaje.
 - Si el archivo ya existe, no se vuelve a descargar.
 
 ## Versión y actualizaciones
@@ -55,7 +56,7 @@ Por defecto consulta las releases de este repo, así que no hay que configurar n
 https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest
 ```
 
-Puedes apuntar a otro sitio desde **API key > URL de actualizaciones**. Acepta la API de GitHub Releases (lee `tag_name` y el `.zxp` adjunto) o un JSON propio:
+Puedes apuntar a otro sitio desde el engranaje de **Configuración > URL de actualizaciones**. Acepta la API de GitHub Releases (lee `tag_name` y el `.zxp` adjunto) o un JSON propio:
 
 ```json
 { "version": "1.3.0", "url": "https://ejemplo.com/MemeGifLibrary.zxp" }
@@ -63,6 +64,7 @@ Puedes apuntar a otro sitio desde **API key > URL de actualizaciones**. Acepta l
 
 ### Registro
 
+- **1.3.0** — Ajustes detrás de un botón de engranaje y botón **Add** al pasar el ratón sobre cada GIF.
 - **1.2.1** — Releases de GitHub como origen de actualizaciones por defecto.
 - **1.2.0** — Botón Actualizar con versión al lado, aviso de descarga y recarga del panel sin reiniciar Premiere.
 - **1.1.0** — Inserta en la pista de vídeo más alta sin sobrescribir; versión visible en el panel.

@@ -5,7 +5,7 @@
 	var KEY_STORAGE = "memegif.giphyApiKey";
 	var UPDATE_URL_STORAGE = "memegif.updateUrl";
 	var GIPHY = "https://api.giphy.com/v1/gifs";
-	var PANEL_VERSION = "1.2.1";
+	var PANEL_VERSION = "1.3.0";
 	var DEFAULT_UPDATE_URL = "https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest";
 
 	var csInterface = new CSInterface();
@@ -353,8 +353,7 @@
 			els.grid.innerHTML = "";
 		}
 		gifs.forEach(function (gif) {
-			var card = document.createElement("button");
-			card.type = "button";
+			var card = document.createElement("div");
 			card.className = "card";
 			card.setAttribute("data-id", gif.id);
 			card.title = "Añadir al timeline";
@@ -366,6 +365,16 @@
 			img.loading = "lazy";
 			img.src = previewUrl(gif);
 			thumb.appendChild(img);
+
+			var add = document.createElement("button");
+			add.type = "button";
+			add.className = "add-btn";
+			add.textContent = "Add";
+			add.addEventListener("click", function (ev) {
+				ev.stopPropagation();
+				addGif(gif, card);
+			});
+			thumb.appendChild(add);
 
 			var title = document.createElement("p");
 			title.className = "card-title";

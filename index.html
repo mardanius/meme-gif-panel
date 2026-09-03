@@ -12,7 +12,7 @@
 			<div class="brand">
 				<span class="brand-name">Meme GIF Library</span>
 				<div class="brand-update">
-					<span id="plugin-version" class="brand-version">v1.2.1</span>
+					<span id="plugin-version" class="brand-version">v1.3.0</span>
 					<button type="button" id="check-update" class="ghost small">Actualizar</button>
 					<button type="button" id="update-action" class="update-action" hidden>Descargar</button>
 				</div>
@@ -23,9 +23,14 @@
 			</form>
 			<div class="toolbar-row">
 				<button type="button" id="trending-btn" class="ghost">Tendencias</button>
-				<button type="button" id="settings-toggle" class="ghost" aria-expanded="false">API key</button>
+				<button type="button" id="settings-toggle" class="ghost icon-btn" aria-expanded="false" aria-label="Configuración" title="Configuración">
+					<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
+						<path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.03-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+					</svg>
+				</button>
 			</div>
 			<div id="settings" class="settings" hidden>
+				<p class="settings-title">Configuración</p>
 				<label for="api-key">Giphy API key</label>
 				<input id="api-key" type="password" placeholder="Pega tu key de developers.giphy.com" />
 				<button type="button" id="save-key">Guardar</button>
