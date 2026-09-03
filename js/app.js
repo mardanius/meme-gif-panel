@@ -5,7 +5,8 @@
 	var KEY_STORAGE = "memegif.giphyApiKey";
 	var UPDATE_URL_STORAGE = "memegif.updateUrl";
 	var GIPHY = "https://api.giphy.com/v1/gifs";
-	var PANEL_VERSION = "1.2.0";
+	var PANEL_VERSION = "1.2.1";
+	var DEFAULT_UPDATE_URL = "https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest";
 
 	var csInterface = new CSInterface();
 	var fs;
@@ -96,7 +97,7 @@
 	}
 
 	function getUpdateUrl() {
-		return (localStorage.getItem(UPDATE_URL_STORAGE) || "").trim();
+		return (localStorage.getItem(UPDATE_URL_STORAGE) || "").trim() || DEFAULT_UPDATE_URL;
 	}
 
 	function setStatus(msg, isError) {

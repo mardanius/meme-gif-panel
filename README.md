@@ -49,20 +49,21 @@ En la cabecera del panel están la versión actual y el botón **Actualizar**:
 - Si hay una versión más nueva en el servidor, aparece **Descargar** al lado (abre el enlace en el navegador). Si estás al día, no aparece nada.
 - Si ya reemplazaste los archivos del panel en disco, el botón aparece como **Recargar**: recarga la interfaz y reevalúa `jsx/host.jsx` sin cerrar Premiere.
 
-La URL de actualizaciones se configura en **API key > URL de actualizaciones** y se guarda en el panel. Acepta dos formatos:
+Por defecto consulta las releases de este repo, así que no hay que configurar nada:
+
+```text
+https://api.github.com/repos/mardanius/meme-gif-panel/releases/latest
+```
+
+Puedes apuntar a otro sitio desde **API key > URL de actualizaciones**. Acepta la API de GitHub Releases (lee `tag_name` y el `.zxp` adjunto) o un JSON propio:
 
 ```json
 { "version": "1.3.0", "url": "https://ejemplo.com/MemeGifLibrary.zxp" }
 ```
 
-O directamente la API de GitHub Releases, de la que se leen `tag_name` y el `.zxp` adjunto:
-
-```text
-https://api.github.com/repos/USUARIO/REPO/releases/latest
-```
-
 ### Registro
 
+- **1.2.1** — Releases de GitHub como origen de actualizaciones por defecto.
 - **1.2.0** — Botón Actualizar con versión al lado, aviso de descarga y recarga del panel sin reiniciar Premiere.
 - **1.1.0** — Inserta en la pista de vídeo más alta sin sobrescribir; versión visible en el panel.
 - **1.0.0** — Librería Giphy, carpeta `gif` del proyecto, empaquetado ZXP.
